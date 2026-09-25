@@ -1,0 +1,30 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+release/
+.env
+.env.*
+!.env.example
+*.log
+coverage/
+.DS_Store
+Thumbs.db
+model-cache/
+ocr-cache/
+*.tmp
+*.tsbuildinfo
+
+# Generated from locked npm dependencies by `npm run assets`.
+public/ort/
+public/icons/
+public/tesseract/worker.min.js
+public/tesseract/tesseract-core*
+
+# `tauri icon` also emits mobile/macOS/store assets; v1.0.0 is Windows-only.
+src-tauri/icons/android/
+src-tauri/icons/ios/
+src-tauri/icons/icon.icns
+src-tauri/icons/icon.png
+src-tauri/icons/Square*.png
+src-tauri/icons/StoreLogo.png
