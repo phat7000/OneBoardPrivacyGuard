@@ -21,6 +21,7 @@ tauri-build = { version = "=2.6.3", features = [] }
 
 [dependencies]
 tauri = { version = "=2.11.6", features = [] }
+tauri-plugin-http = "=2.6.0"
 
 [profile.release]
 panic = "abort"

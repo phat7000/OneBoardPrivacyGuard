@@ -15,6 +15,8 @@ DocCloak.Core is the detection, placeholder/session, Office protection, and OCR 
 - Source: https://github.com/tauri-apps/tauri
 - License: Apache-2.0 OR MIT
 
+The official Tauri HTTP plugin is used only for model downloads in the packaged WebView, with its capability restricted to the model hosts listed in the application policy. The plugin is Apache-2.0 OR MIT licensed.
+
 ## React and React DOM
 
 - Source: https://github.com/facebook/react

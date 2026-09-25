@@ -21,6 +21,8 @@ PDF protection is intentionally not included in version 1.0.0. For PDF OCR workf
 
 Sensitive-content detection and protection run locally. A network connection may be required once to download the selected local ML model. DocCloak.Core pins the model and tokenizer assets to immutable revisions, verifies their SHA-256 hashes, and caches them locally. Normal protection can then work offline.
 
+In the packaged desktop application, first-use model requests use Tauri's HTTP transport with capability scope restricted to the required Hugging Face model hosts. The request contains no document content, PII, file name, or mapping data.
+
 No OneBoard cloud service receives the user's documents, text, PII, OCR output, file names, placeholder maps, or restore dictionaries. The app has no telemetry, analytics, account, API key, cloud LLM, or local server. Sensitive session state is memory-first and is not automatically persisted. Only preferences and downloaded model assets are cached.
 
 The Windows portable build requires the Microsoft Edge WebView2 Runtime. The installer embeds Microsoft's supported WebView2 bootstrapper for systems where it is missing.

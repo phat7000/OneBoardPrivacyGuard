@@ -1,7 +1,17 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Minimal desktop window capability for OneBoard Privacy Guard.",
+  "description": "Desktop capability with tightly scoped model-download access.",
   "windows": ["main"],
-  "permissions": ["core:default"]
+  "permissions": [
+    "core:default",
+    {
+      "identifier": "http:default",
+      "allow": [
+        { "url": "https://huggingface.co/**" },
+        { "url": "https://cdn-lfs.hf.co/**" },
+        { "url": "https://cas-bridge.xethub.hf.co/**" }
+      ]
+    }
+  ]
 }

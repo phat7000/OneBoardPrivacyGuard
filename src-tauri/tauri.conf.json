@@ -23,7 +23,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self' customprotocol: asset:; connect-src 'self' ipc: http://ipc.localhost https://huggingface.co https://cdn-lfs.hf.co https://cas-bridge.xethub.hf.co; img-src 'self' asset: blob: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; child-src 'self' blob:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'",
+      "csp": "default-src 'self' customprotocol: asset:; connect-src 'self' blob: ipc: http://ipc.localhost https://huggingface.co https://cdn-lfs.hf.co https://cas-bridge.xethub.hf.co; img-src 'self' asset: blob: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; child-src 'self' blob:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-src 'none'; form-action 'none'",
       "freezePrototype": true
     }
   },

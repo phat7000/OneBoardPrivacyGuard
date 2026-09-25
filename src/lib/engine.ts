@@ -8,6 +8,8 @@ import {
   type RegexRegionId,
 } from '@doccloak/core';
 import { PreTrainedTokenizer } from '@huggingface/transformers';
+import { isTauri } from '@tauri-apps/api/core';
+import { fetch as tauriFetch } from '@tauri-apps/plugin-http';
 
 const MODEL_CACHE = 'oneboard-models-v1';
 const ALLOWED_MODEL_HOSTS = new Set(['huggingface.co', 'cdn-lfs.hf.co', 'cas-bridge.xethub.hf.co']);
@@ -23,7 +25,11 @@ function safeFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Respon
     return Promise.reject(new Error(`Blocked network destination: ${url.hostname || url.protocol}`));
   }
   if (init?.body) return Promise.reject(new Error('Model requests must not contain a request body.'));
-  return fetch(input, { ...init, credentials: 'omit', referrerPolicy: 'no-referrer' });
+  const options = { ...init, credentials: 'omit' as RequestCredentials, referrerPolicy: 'no-referrer' as ReferrerPolicy };
+  // WebView fetch enforces browser CORS against the custom Tauri origin. The
+  // scoped Rust transport is used only in the packaged app; browser dev/tests
+  // retain the normal fetch implementation.
+  return isTauri() ? tauriFetch(input, options) : fetch(input, options);
 }
 
 const kv = {
